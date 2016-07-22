@@ -1,0 +1,31 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : true,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/llk.js",
+        "src/game_scene.js",
+
+        "src/common/layer_grids.js",
+        "src/common/layer_game.js",
+        "src/common/game_ele_cell.js",
+        "src/common/game_ele_map.js",
+        "src/common/game_ele_sprite_cell.js",
+        "src/common/game_manager.js",
+        "src/common/game_enum_cell.js",
+        "src/common/game_logic.js",
+
+        "src/home/home_main.js",
+        "src/barrier_1/b1_main.js"
+    ]
+}
