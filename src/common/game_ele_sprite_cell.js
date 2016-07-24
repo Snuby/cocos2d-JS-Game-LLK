@@ -12,19 +12,19 @@ LLK.EleSpriteCell = cc.Sprite.extend({
     bgSprite:null,
     gameManager:null,
 
-    ctor:function(gameManager, eleMap, fileName, rect, rotated){
+    ctor:function(gameManager, eleMap, fileName, rect, rotated, type){
         this._super(fileName, rect, rotated);
         
         this.eleMap = eleMap;
         this.gameManager = gameManager;
-        this.type = 0;
+        this.type = type;
         this.value = 0;
         this.state = 0;
 
-        this.setScale(0.8);
+        this.setScale(55.0/200);
         this.bgSprite = new cc.Sprite(g_resources.Round_White_png);
         this.bgSprite.setNormalizedPosition(0.5,0.5);
-        this.bgSprite.setScale(0.65);
+        this.bgSprite.setScale(2.5);
     },
     reset:function(position){
         var eleCell = this.eleMap.getEleCell(position);
@@ -47,14 +47,15 @@ LLK.EleSpriteCell = cc.Sprite.extend({
     },
     cleanUp:function(){
         var _this = this;
-        
+        _this.drawUnSelected();
+
         cc.eventManager.removeListener(_this.touchListener);
         _this.eleCell.value = 0;
         _this.runAction(new cc.Sequence(
             new cc.FadeOut(0.5),
             new cc.CallFunc(function(){
                 _this.removeFromParent(true);
-                _this.drawUnSelected();
+
             }, _this)
         ));
 

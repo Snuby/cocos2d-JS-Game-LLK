@@ -18,6 +18,7 @@ LLK.EleMap = cc.Node.extend({
 
         this.drawNode = new cc.DrawNode();
         this.eleCellsMap = new Array();
+        this.mapData = new Array();
 
         this.cellSize = cellSize;
         this.leftDownPos = leftDownPos;
@@ -72,6 +73,24 @@ LLK.EleMap = cc.Node.extend({
         }
         return this.eleCellsMap[x][y];
     },
+    removeElementFromMapData : function(position1, position2, emptyListener){
+        for(var i = 0; i < this.mapData.length; i++){
+            if(position1 && cc.pSameAs(position1, this.mapData[i])){
+                this.mapData.splice(i, 1);
+                i--;
+            }
+            if(position1 && cc.pSameAs(position2, this.mapData[i])){
+                this.mapData.splice(i, 1);
+                i--;
+            }
+        }
+        if(this.mapData.length == 0 && emptyListener){
+            emptyListener();
+        }
+
+        cc.log("length left to: " + this.mapData.length);
+    },
+
     resetMapData:function(mapData){
         if(mapData && mapData.length > 0){
             this.mapData = mapData;

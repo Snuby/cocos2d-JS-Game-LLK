@@ -9,11 +9,24 @@ LLK.GameLogic = {
     DOWN : 3,
     LEFT : 4,
 
+
+
     Path:cc.DrawNode.extend({
         eleCells:null,
         ctor:function(){
             this._super();
             this.eleCells = new Array();
+        },
+        _createAnimation:function () {
+            var texture = cc.textureCache.addImage(g_resources.Animations_png);
+
+            var frame1 = new cc.SpriteFrame(texture, cc.rect(768, 0, 192, 192), false, 0, cc.size(192,192));
+            var frame2 = new cc.SpriteFrame(texture, cc.rect(0, 192, 192, 192), false, 0, cc.size(192,192));
+            var frame3 = new cc.SpriteFrame(texture, cc.rect(192, 192, 192, 192), false, 0, cc.size(192,192));
+            var frame4 = new cc.SpriteFrame(texture, cc.rect(384, 192, 192, 192), false, 0, cc.size(192,192));
+            var spriteFrames = [frame1, frame2, frame3, frame4];
+
+            return new cc.Animation(spriteFrames, 0.1, 1);
         },
         push:function(eleCell){
             return this.eleCells.push(eleCell);
@@ -42,17 +55,30 @@ LLK.GameLogic = {
             ));   
         },
         drawPath:function(){
-            this.clear();
             var lineColor = cc.color(100,200,255,255);
             var fillColor = cc.color(100,0,255,80);
             var lineWidth = 1;
             this.clear();
+            this.removeAllChildren();
 
             cc.log("!-----------------------");
             for(var i = 0; i < this.eleCells.length; i++){
                 var eleCell = this.eleCells[i];
                 //this.drawRect(eleCell.leftDownPoint, eleCell.rightUpPoint, fillColor, lineWidth, lineColor);
-                this.drawCircle(eleCell.centerPoint, 10, 0, 30, false, 20, lineColor);
+                //this.drawCircle(eleCell.centerPoint, 10, 0, 30, false, 20, lineColor);
+                var animation = this._createAnimation();
+                var action = cc.animate(animation);
+                var sprite = new cc.Sprite();
+                sprite.setScale(0.7);
+
+                sprite.attr({
+                    x : eleCell.centerPoint.x,
+                    y : eleCell.centerPoint.y,
+                });
+                this.addChild(sprite);
+
+                sprite.runAction(action);
+
                 cc.log(eleCell.position);
             }
             cc.log("-----------------------!");

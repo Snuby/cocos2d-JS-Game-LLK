@@ -24,11 +24,20 @@ window.LLK = (function(){
         if(!scenes.b1Scene || startNew){
             scenes.b1Scene = new LLK.B1Scene();
         }
-
-        LLK.currentScene = scenes.b1Scene;
-        LLK.currentScene.reload();
+        cc.loader.register(["mp3","jpg","png","wav"]);
+        cc.LoaderScene.preload(g_resources_array(),function(){
+            LLK.currentScene = scenes.b1Scene;
+            LLK.currentScene.reload();
+        });
     };
 
-    //cc.audioEngine.playMusic(Res.Common.bgm, true);
+    LLK.loadGameOverScene = function(){
+        if(!scenes.gameOverScene){
+            scenes.gameOverScene = new LLK.GameOverScene();
+        }
+
+        LLK.currentScene = scenes.gameOverScene;
+        LLK.currentScene.reload();
+    };
     return LLK;
 })();

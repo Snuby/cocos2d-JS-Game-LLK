@@ -1,14 +1,36 @@
-var g_resources = {
+window.g_resources = {
     HelloWorld_png : "res/HelloWorld.png",
-    Altas : "res/imgs/altas4.png",
+    Texture : "res/imgs/icons.png",
     Icon_png : "res/imgs/icon.png",
-    Round_White_png:"res/imgs/round_white.png"
+    GameBG_jpg : "res/imgs/bg6.jpg",
+    Round_White_png:"res/imgs/round_white.png",
+    Animations_png : "res/imgs/animations.png",
+    Progress_png : "res/imgs/progress_blue.png",
+    Niu_jpg : "res/imgs/niu.jpg",
+
+    BGM_mp3:"res/sounds/bgm_dyht.mp3",
+    Click_wav:"res/sounds/click.wav",
+    Hit_mp3:"res/sounds/hit.mp3",
+    GameOver_wav:"res/sounds/game_over.wav",
+    GameWin_wav:"res/sounds/game_win.wav"
 };
 
-var g_configs = {
-    cellWidthNum : 18,
-    leftDownPosition : cc.p(2,2),
-    rightUpPosition : cc.p(17,8),
+window.g_resources_array = function(){
+    var array = new Array();
+    for(var item in g_resources){
+        var value = g_resources[item];
+        array.push(value);
+    }
+    return array;
+}
+
+window.g_configs = {
+    cellWidthNum : 16,
+    leftDownPosition : cc.p(1,1),
+    rightUpPosition : cc.p(16,8),
+
+    playSeconds : 160,
+    soundSwitch : true,
 
     debugMap : true,
     url:"http://localhost:63343/llk/index.html"

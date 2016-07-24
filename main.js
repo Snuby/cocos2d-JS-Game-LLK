@@ -71,5 +71,14 @@ cc.game.onStart = function(){
     cc.LoaderScene.preload(g_resources, function () {
         LLK.loadB1Scene();
     }, this);
+
+    if(g_configs.soundSwitch){
+        cc.audioEngine.playMusic(g_resources.BGM_mp3, true);
+    }
 };
-cc.game.run();
+
+window.onload = function(){
+    //cc.game.prepare();
+    cc.game.run();
+
+}

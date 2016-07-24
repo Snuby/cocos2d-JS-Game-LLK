@@ -1,7 +1,7 @@
 {
     "project_type": "javascript",
 
-    "debugMode" : 1,
+    "debugMode" : 0,
     "showFPS" : true,
     "frameRate" : 60,
     "noCache" : false,
@@ -26,6 +26,8 @@
         "src/common/game_logic.js",
 
         "src/home/home_main.js",
+        "src/gameOver/game_over.js",
         "src/barrier_1/b1_main.js"
+
     ]
 }
