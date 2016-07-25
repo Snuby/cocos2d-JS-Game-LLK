@@ -30,7 +30,8 @@ window.g_configs = {
     rightUpPosition : cc.p(16,8),
 
     playSeconds : 160,
-    soundSwitch : true,
+    soundSwitch : false,
+    bgmSwitch : true,
 
     debugMap : true,
     url:"http://localhost:63343/llk/index.html"

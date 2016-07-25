@@ -72,7 +72,7 @@ cc.game.onStart = function(){
         LLK.loadB1Scene();
     }, this);
 
-    if(g_configs.soundSwitch){
+    if(g_configs.bgmSwitch){
         cc.audioEngine.playMusic(g_resources.BGM_mp3, true);
     }
 };
