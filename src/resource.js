@@ -8,7 +8,7 @@ window.g_resources = {
     Progress_png : "res/imgs/progress_blue.png",
     Niu_jpg : "res/imgs/niu.jpg",
 
-    BGM_mp3:"res/sounds/bgm_dyht.mp3",
+    BGM_mp3:"res/sounds/bgm_romatic.mp3",
     Click_wav:"res/sounds/click.wav",
     Hit_mp3:"res/sounds/hit.mp3",
     GameOver_wav:"res/sounds/game_over.wav",
@@ -30,7 +30,7 @@ window.g_configs = {
     rightUpPosition : cc.p(16,8),
 
     playSeconds : 160,
-    soundSwitch : false,
+    soundSwitch : true,
     bgmSwitch : true,
 
     debugMap : true,
